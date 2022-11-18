@@ -1,0 +1,13 @@
+mixin tipsBtn
+    p.textAdd add tip
+
+        .paymentSection__container__tips__buttons
+            
+            -let value = 5;
+            -for (i = 0;i<=3 ; i++){  
+
+                .paymentSection__container__tips__btns(data-btn-tips = `#tip-${value}`)
+                    button.paymentSection__container__tips__btn(value = `${value}` )= `$${value}`
+                - value = value +5
+            - }     
+

@@ -1,0 +1,184 @@
+@use '../abtracts' as *;
+
+.main {
+    position: relative;
+    overflow-y: scroll;
+    height: 100%;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: var(--green-50);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--blue-200);
+    }
+    @include breakpoint(tablet) {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        overflow-y: unset;
+        height: 100%;
+        overflow-x: unset;
+    }
+
+    &__leftSide {
+        &__container {
+            @extend borderBottom;
+            padding: 2rem;
+            @extend flexColumn;
+
+            @include breakpoint(mobileLand) {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+            align-items: start;
+            gap: 3rem;
+            .h3 {
+                font-size: map-get($fontSize, titleSection);
+                text-transform: uppercase;
+            }
+            &__floor {
+                display: flex;
+                align-items: center;
+                justify-content: start;
+                gap: 3rem;
+                .btn {
+                    @include btn(floor);
+                }
+            }
+        }
+    }
+    &__rightSide {
+        padding: 2rem;
+        @include breakpoint(tablet) {
+            padding: 4rem;
+        }
+
+        // overflow-y: scroll;
+        // height: 60vh;
+        &__container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+            gap: 2rem;
+
+            @include breakpoint(mobile) {
+                grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+            }
+            @include breakpoint(desktop) {
+                grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+            }
+            &__table {
+                position: relative;
+                overflow: hidden;
+                input {
+                    display: none;
+                }
+
+                input:checked ~ .main__rightSide__container__table--label {
+                    opacity: 1;
+                    border: solid 1px var(--blue-600) !important;
+                    border-radius: 1.5rem;
+
+                    .counter {
+                        bottom: 0 !important;
+                    }
+                }
+
+                &--label {
+                    opacity: 0.28;
+                    cursor: pointer;
+                    border: 1px solid transparent;
+                    padding: 2rem;
+                    position: relative;
+                    overflow: hidden;
+                    transition: all 0.2s;
+                    &:hover {
+                        border: 1px solid var(--green-50);
+                        border-radius: 1.5rem;
+                        padding: 2rem;
+                        opacity: 1;
+                    }
+                    label {
+                        cursor: pointer;
+
+                        img {
+                            @include breakpoint(mobileLand) {
+                                width: 24.22rem;
+                            }
+                            @include breakpoint(tablet) {
+                                width: 18.22rem;
+                            }
+                        }
+                    }
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    span {
+                        position: absolute;
+                        color: var(--salmon-600);
+                        font-size: map-get($fontSize, tableNumber);
+                        font-weight: map-get($fontWeight, bold);
+                    }
+                }
+            }
+        }
+    }
+
+    &__bottom {
+        background-color: var(--actions-extras-light-blue);
+        position: fixed;
+        z-index: 400;
+        bottom: -1.8rem;
+        animation: fadeUp 0.4s linear;
+        width: 100%;
+
+        @include breakpoint(tablet) {
+            display: block !important;
+            position: sticky;
+            background-color: #fff;
+            z-index: 0;
+            bottom: 0;
+            width: auto;
+            border-top: 1px solid var(--green-50) !important;
+        }
+        &__container {
+            padding: 2rem;
+            @extend flexColumn;
+            gap: 2rem;
+
+            @include breakpoint(tablet) {
+                flex-direction: row !important;
+                justify-content: space-between;
+            }
+
+            &__details {
+                @include detailCustomer;
+            }
+
+            &__continue {
+                .btn-select {
+                    @include btn(select);
+                }
+            }
+        }
+    }
+
+    &__sideSlide {
+        @include sideSlide;
+    }
+
+    .menuFood {
+        @include breakpoint(tablet) {
+            display: flex !important;
+            flex-direction: column-reverse !important;
+            height: auto;
+            justify-content: space-between;
+        }
+    }
+}

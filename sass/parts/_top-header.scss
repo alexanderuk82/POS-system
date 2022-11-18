@@ -1,0 +1,66 @@
+@use '../abtracts/' as *;
+
+.topHeader {
+    @extend borderBottom;
+    @include breakpoint(tablet) {
+        height: 10rem;
+    }
+    &__container {
+        display: flex;
+        align-items: center;
+        padding: 2rem;
+    }
+    &__leftSide {
+        margin-right: auto;
+        display: flex;
+        gap: 5rem;
+        align-items: center;
+        &__search {
+            display: none;
+            @include breakpoint(tablet) {
+                display: flex;
+                background-color: var(--blue-50);
+                padding: 1rem 2rem;
+                gap: 3rem;
+                border-radius: 1rem;
+                cursor: pointer;
+                input,
+                button {
+                    border: none;
+                    background-color: transparent;
+                    cursor: pointer;
+                    &:focus {
+                        outline: 0;
+                    }
+                }
+                input {
+                    width: 20rem;
+                    font-family: inherit;
+                }
+            }
+        }
+    }
+    &__rightSide {
+        display: flex;
+        gap: 3rem;
+        align-items: center;
+        .btn {
+            @include btn('main');
+        }
+        button.hamburger.hamburger--collapse {
+            @include breakpoint(tablet) {
+                display: none !important;
+            }
+        }
+    }
+
+    &__date {
+        display: none;
+
+        @include breakpoint(mobileLand) {
+            display: flex;
+            align-items: center;
+        }
+        gap: 1rem;
+    }
+}

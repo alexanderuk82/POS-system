@@ -1,0 +1,53 @@
+@use '../abtracts/' as *;
+
+.menuLinks {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid var(--green-50);
+    background-color: #fff;
+    z-index: 300;
+    @include breakpoint(tablet) {
+        position: relative;
+        border-top: 1px solid transparent;
+        height: 100%;
+    }
+    .version {
+        display: none;
+
+        @include breakpoint(desktop) {
+            display: block;
+            position: unset;
+        }
+    }
+    &__container {
+        padding: 2rem;
+        gap: 2rem;
+        @extend flexInline;
+
+        @include breakpoint(tablet) {
+            flex-direction: column;
+            align-content: space-around;
+            height: 100%;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        @extend flexColumn;
+        text-align: center;
+        color: inherit;
+        gap: 0.7rem;
+        font-size: map-get($fontSize, menuLinks);
+        cursor: pointer;
+        opacity: 0.2;
+        img {
+            width: 2.8rem;
+            height: 2.4rem;
+        }
+        span {
+            letter-spacing: 1.74px;
+            text-transform: uppercase;
+        }
+    }
+}

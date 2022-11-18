@@ -1,0 +1,13 @@
+mixin topHeaderResume(order)
+    .resumeHeader
+        h3.h3 order #
+        h3.h3.orderNumber= `${order}`
+    .timeAndTableHeader
+        .tableDetails
+            img(src="./img/small-table-icon.svg")
+            p.tableDetails--table table:
+            p.tableDetails--number -
+        .timeDetails
+            img(src="./img/clock.svg")
+            p.tableDetails--time time:
+            p.tableDetails--hour 00:00 

@@ -1,0 +1,58 @@
+extends ../src/templates/layout.pug
+include ../src/components/cardFood.pug
+include ../src/components/topSideDetails.pug
+include ../src/components/orderSelected.pug
+include ../src/components/subtotal.pug
+include ../src/components/confirmation.pug
+include ../src/components/noFood.pug
+block content
+    main.main
+        .main__middle.menuFood
+            .menuContainer__middle__tabs
+                .menuContainer__middle__tabs__wrapp.swiper-wrapper 
+                
+                    li.swiper-slide.tabActive(data-tab-target = "#starter") starter
+                    li.swiper-slide(data-tab-target = "#main") main course
+                    li.swiper-slide(data-tab-target = "#drinks") drinks
+                    li.swiper-slide(data-tab-target = "#dessert") dessert
+            .menuContainer__middle__food
+                div.menuContainer__middle__food__section.activeBlock#starter
+                    //- + cardFood('starter')
+                div.menuContainer__middle__food__section#main
+                    //- + cardFood('main')
+                div.menuContainer__middle__food__section#drinks
+                    //- + cardFood('drinks')
+                div.menuContainer__middle__food__section#dessert
+                    //- + cardFood('dessert')
+        .main__sideSlide
+            .main__sideSlide__container
+                .main__sideSlide__container__topSide
+                    + topSideDetails(12544215)
+                .main__sideSlide__container__contentDetails
+
+                    .main__sideSlide__container__noFood
+                         + noFood
+                    .main__sideSlide__container__contentDetails__orders.display
+                        //- + orderSelected
+                    .main__sideSlide__container__contentDetails__payment.display
+                        + subTotal
+                        .main__sideSlide__container__contentDetails__payment__sendOrder#sendOrder
+                            + confirmation
+    //- Swipper slider
+    script(src='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js')
+
+    //- Lotties
+     <!-- Lotties animation -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.4/lottie.min.js"></script>
+
+
+    //- Sweet alert popUp
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    //- Menu.js
+    script(src='../public/js/modules/menu.js' type = "module" defer)
+
+
+    

@@ -1,0 +1,228 @@
+:root {
+    /*
+        //! Colors main and secondary
+           
+    */
+
+    //Extras action colors
+
+    --actions-extras-warning: #ec5a5a;
+    --actions-extras-light-blue: #eaf0f0;
+    --actions-extras-unactive-btn: #d9d9d9;
+    --actions-extras-unactive-text: #a9a9a9;
+    --actions-extras-light-gray: #fafafa;
+
+    //Blue and shades
+    --blue-50: #ecf3f5;
+    --blue-900: #060d0f;
+    --blue-800: #0f2125;
+    --blue-700: #1f424a;
+    --blue-600: #2e636e;
+    --blue: #3d8493;
+    --blue-400: #649da9;
+    --blue-300: #8bb5be;
+    --blue-200: #b1ced4;
+    --blue-100: #d8e6e9;
+
+    //Salmon and shades
+    --salmon-900: #16100a;
+    --salmon-800: #362819;
+    --salmon-700: #6c5033;
+    --salmon-600: #a2774c;
+    --salmon: #d89f65;
+    --salmon-400: #e0b284;
+    --salmon-300: #e8c5a3;
+    --salmon-200: #efd9c1;
+    --salmon-100: #f7ece0;
+    --salmon-50: #fcf6f0;
+
+    //Green and shades
+    --green-900: #060707;
+    --green-800: #0f1311;
+    --green-700: #1d2521;
+    --green-600: #2c3832;
+    --green: #4a5c2f;
+    --green-400: #616e68;
+    --green-300: #89928e;
+    --green-200: #b0b7b3;
+    --green-100: #d8dbd9;
+    --green-50: #eceded;
+
+    /*
+        //! Main google font Quick sand
+                  
+    */
+    --main-font: 'Quicksand', sans-serif;
+}
+
+$fontSize: (
+    'btn': 1.6rem,
+    'menuLinks': 1.3rem,
+    'textCategory': 1.2rem,
+    'tab': 1.4rem,
+    'titleSection': 3rem,
+    'numberHighlight': 2.3rem,
+    'tableNumber': 2.5rem,
+    'numberCounter': 3.5rem,
+    'nameFood': 1.5rem,
+);
+$fontWeight: (
+    'bold': 500,
+    'extra-bold': 600,
+);
+
+flexInline {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+flexColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+flexColumnCenter {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+borderBottom {
+    border-bottom: 1px solid var(--green-50);
+}
+borderBottomDashed {
+    border-bottom: 1px dashed var(--actions-extras-unactive-text);
+}
+
+noFood {
+    height: 50vh;
+    @extend flexColumnCenter;
+    text-transform: uppercase;
+    gap: 3rem;
+    font-weight: 600;
+
+    p {
+        width: 50%;
+        text-align: center;
+    }
+}
+
+.display {
+    display: none !important;
+}
+
+.activeBlock {
+    animation: scrollDown 1s linear;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)) !important;
+    gap: 3rem;
+    justify-items: center;
+}
+.tabActive {
+    background-color: var(--green) !important;
+    color: var(--blue-50) !important;
+    font-weight: map-get($fontWeight, bold) !important;
+}
+.activeMethod {
+    background-color: var(--blue-200) !important;
+    color: var(--green-600) !important;
+
+    img {
+        opacity: 1 !important;
+    }
+}
+
+a.linkActive {
+    opacity: 1 !important;
+    color: var(--salmon-600) !important;
+}
+a.paymentLink {
+    opacity: 1 !important;
+    color: var(--salmon-600) !important;
+}
+
+.active-side {
+    transform: translateX(0rem) !important;
+    z-index: 3 !important;
+}
+.floorActive {
+    background-color: var(--salmon-300) !important;
+    color: var(--green-600) !important;
+}
+.showCounter {
+    bottom: 0 !important;
+}
+.sendOrderActive {
+    top: 0 !important;
+}
+.tipActive {
+    background-color: var(--blue-200) !important;
+    color: var(--green-600) !important;
+
+    img {
+        opacity: 1 !important;
+    }
+}
+
+stylesButton {
+    border-radius: 1rem;
+    padding: 1.7rem 2rem;
+    border: 0;
+    font-size: map-get($fontSize, btn);
+    text-transform: uppercase;
+    @extend flexInline;
+    gap: 0.5rem;
+    font-weight: map-get($fontWeight, bold);
+    cursor: pointer;
+}
+
+// Styles for buttons Sweetalert
+
+.swal-footer {
+    padding-top: 13px;
+    margin-top: 13px;
+    padding: 13px 16px;
+    border-radius: inherit;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    display: flex;
+    justify-content: space-around;
+
+    .swal-button {
+        &--cancel {
+            @extend stylesButton;
+            background-color: var(--blue-50);
+        }
+
+        &--confirm {
+            @extend stylesButton;
+            background-color: var(--actions-extras-warning);
+
+            &:hover {
+                background-color: hsla(0, 79%, 64%, 0.941);
+            }
+        }
+    }
+}
+
+//Key frames simple animations
+
+@keyframes fadeUp {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(8.8rem);
+    }
+}
+@keyframes scrollDown {
+    0% {
+        transform: translateY(0);
+    }
+
+    20% {
+        transform: translateY(4rem);
+    }
+}

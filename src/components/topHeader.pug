@@ -1,0 +1,18 @@
+include ../components/button.pug
+include ../components/hamburguer.pug
+
+mixin topHeader
+    .topHeader__container 
+        .topHeader__leftSide
+            a.topHeader__container--logo(href="../public/index.html") 
+                img(src="./img/POS.svg", alt="logo")
+            .topHeader__leftSide__search 
+                input(type="text", name="search prodcuts" placeholder = "Search product or any order...")
+                button(type="submit")
+                    img(src="./img/search.svg") 
+        .topHeader__rightSide
+            .topHeader__date
+                img(src="./img/calendar.svg", alt="")
+                p.topHeaderTime
+            + button(add)
+            + hamburguer

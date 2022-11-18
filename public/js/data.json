@@ -1,0 +1,250 @@
+{
+    "starter": [
+        {
+            "image": "starter-1.jpg",
+            "title": "Jam with bread",
+            "id": 1,
+            "price": 12,
+            "category": {
+                "allergy": "glutten",
+                "extra": "chilli-1"
+            }
+        },
+        {
+            "image": "starter-2.jpg",
+            "title": "Greece salad ",
+            "id": 2,
+            "price": 19,
+            "category": {
+                "allergy": "nuts",
+                "extra": "vegan"
+            }
+        },
+        {
+            "image": "starter-3.jpg",
+            "title": "Vegan dumplings",
+            "id": 3,
+            "price": 12,
+            "category": {
+                "allergy": "vegan",
+                "extra": "chilli-2"
+            }
+        },
+        {
+            "image": "starter-4.jpg",
+            "title": "Shrimp cocktails",
+            "id": 4,
+            "price": 12,
+            "category": {
+                "allergy": "glutten",
+                "extra": "nuts"
+            }
+        },
+        {
+            "image": "starter-5.jpg",
+            "title": "Polish pieroggi",
+            "id": 5,
+            "price": 12,
+            "category": {
+                "allergy": "glutten",
+                "extra": "nuts"
+            }
+        },
+        {
+            "image": "starter-6.jpg",
+            "title": "Poached eggs",
+            "id": 6,
+            "price": 12,
+            "category": {
+                "allergy": "glutten",
+                "extra": "house"
+            }
+        }
+    ],
+    "main": [
+        {
+            "image": "main-1.jpg",
+            "title": "Spicy seafood",
+            "id": 7,
+            "price": 30,
+            "category": {
+                "allergy": "nuts",
+                "extra": "chilli-2"
+            }
+        },
+        {
+            "image": "main-2.jpg",
+            "title": " salmon",
+            "id": 8,
+            "price": 30,
+            "category": {
+                "allergy": "glutten",
+                "extra": "chilli-1"
+            }
+        },
+        {
+            "image": "main-3.jpg",
+            "title": "Pesto pasta",
+            "id": 9,
+            "price": 30,
+            "category": {
+                "allergy": "nuts",
+                "extra": "vegan"
+            }
+        },
+        {
+            "image": "main-4.jpg",
+            "title": "Burger POS",
+            "id": 10,
+            "price": 30,
+            "category": {
+                "allergy": "nuts",
+                "extra": "chilli-1"
+            }
+        },
+        {
+            "image": "main-5.jpg",
+            "title": "Wiener Schnitzel",
+            "id": 11,
+            "price": 30,
+            "category": {
+                "allergy": "glutten",
+                "extra": "house"
+            }
+        },
+        {
+            "image": "main-6.jpg",
+            "title": "big steak",
+            "id": 12,
+            "price": 30,
+            "category": {
+                "allergy": "glutten",
+                "extra": "nuts"
+            }
+        }
+    ],
+    "drink": [
+        {
+            "image": "drink-1.jpg",
+            "title": "wild berries",
+            "id": 13,
+            "price": 30,
+            "category": {
+                "allergy": "alcohol",
+                "extra": "vegan"
+            }
+        },
+        {
+            "image": "drink-2.jpg",
+            "title": "rose wine",
+            "id": 14,
+            "price": 30,
+            "category": {
+                "allergy": "alcohol",
+                "extra": "house"
+            }
+        },
+        {
+            "image": "drink-3.jpg",
+            "title": "pine apple",
+            "id": 15,
+            "price": 30,
+            "category": {
+                "allergy": "free",
+                "extra": "house"
+            }
+        },
+        {
+            "image": "drink-4.jpg",
+            "title": "Fairytale Negroni",
+            "id": 16,
+            "price": 30,
+            "category": {
+                "allergy": "alcohol",
+                "extra": "house"
+            }
+        },
+        {
+            "image": "drink-5.jpg",
+            "title": "cold beer",
+            "id": 17,
+            "price": 30,
+            "category": {
+                "allergy": "alcohol",
+                "extra": "free"
+            }
+        },
+        {
+            "image": "drink-6.jpg",
+            "title": "orange juice",
+            "id": 18,
+            "price": 30,
+            "category": {
+                "allergy": "free",
+                "extra": "house"
+            }
+        }
+    ],
+    "dessert": [
+        {
+            "image": "dessert-1.jpg",
+            "title": "pancakes strawb",
+            "id": 19,
+            "price": 30,
+            "category": {
+                "allergy": "glutten",
+                "extra": "nuts"
+            }
+        },
+        {
+            "image": "dessert-2.jpg",
+            "title": "waffle berries",
+            "id": 20,
+            "price": 30,
+            "category": {
+                "allergy": "glutten",
+                "extra": "house"
+            }
+        },
+        {
+            "image": "dessert-3.jpg",
+            "title": "choco cookies",
+            "id": 21,
+            "price": 30,
+            "category": {
+                "allergy": "nuts",
+                "extra": "house"
+            }
+        },
+        {
+            "image": "dessert-4.jpg",
+            "title": "oreo glass",
+            "id": 22,
+            "price": 30,
+            "category": {
+                "allergy": "house",
+                "extra": "glutten"
+            }
+        },
+        {
+            "image": "dessert-5.jpg",
+            "title": "cheese cake",
+            "id": 23,
+            "price": 30,
+            "category": {
+                "allergy": "vegan",
+                "extra": "glutten"
+            }
+        },
+        {
+            "image": "dessert-6.jpg",
+            "title": "muffin caramel",
+            "id": 24,
+            "price": 30,
+            "category": {
+                "allergy": "nuts",
+                "extra": "house"
+            }
+        }
+    ]
+}

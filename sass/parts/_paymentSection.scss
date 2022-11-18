@@ -1,0 +1,212 @@
+@use '../abtracts/' as *;
+
+.paymentSection {
+    @include breakpoint(tablet) {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    .main__sideSlide {
+        height: 100% !important;
+        @include breakpoint(tablet) {
+            width: 100%;
+        }
+    }
+
+    position: relative;
+    &__container {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        row-gap: 2.5rem;
+        @include breakpoint(tablet) {
+            border-left: 1px solid var(--green-50) !important;
+        }
+        &__header {
+            font-size: map-get($fontSize, titleSection);
+            text-transform: uppercase;
+            @extend flexColumn;
+            align-items: stretch;
+            gap: 1.5rem;
+            padding-bottom: 1.4rem;
+            @extend borderBottomDashed;
+            &--details {
+                @extend flexInline;
+                justify-content: space-between;
+                .priceAmount {
+                    color: var(--salmon);
+                }
+
+                .tableGuess {
+                    @extend flexInline;
+                    justify-content: space-between;
+                    font-size: map-get($fontSize, btn);
+                    gap: 0.7rem;
+                    font-weight: 700;
+
+                    &--number {
+                        color: var(--salmon);
+                        font-size: map-get($fontSize, numberHighlight);
+                    }
+                }
+            }
+        }
+
+        &__tips {
+            @extend flexInline;
+            justify-content: space-between;
+            padding-bottom: 2.4rem;
+            @extend borderBottomDashed;
+
+            .textAdd {
+                font-size: map-get($fontSize, btn);
+                font-weight: 700;
+                text-transform: uppercase;
+                margin-right: auto;
+                white-space: nowrap;
+            }
+
+            &__buttons {
+                display: flex;
+                & > * {
+                    &:not(:last-child) {
+                        margin-right: 1.9rem;
+                    }
+                }
+            }
+            &__btns {
+                button {
+                    @include btn(tips);
+                }
+            }
+        }
+
+        &__method {
+            &__btns {
+                @extend borderBottomDashed;
+                @extend flexInline;
+                justify-content: space-between;
+                padding-bottom: 2.4rem;
+                .btn-method {
+                    @include btn(method);
+                }
+            }
+
+            &__input {
+                padding: 2.4rem 1.4rem;
+                @extend borderBottomDashed;
+                background-color: var(--blue-50);
+                @extend flexInline;
+                justify-content: space-between;
+
+                #addCash {
+                    font-size: map-get($fontSize, btn);
+                    text-transform: uppercase;
+                    font-weight: map-get($fontWeight, bold);
+                }
+
+                .input-field {
+                    border-bottom: 1px solid var(--green-700);
+                    font-size: map-get($fontSize, numberCounter);
+                    // @extend flexInline;
+                    font-weight: map-get($fontWeight, bold);
+                    width: 12rem;
+                    #currency {
+                        margin-left: 2.5rem;
+                    }
+                    input {
+                        border: 0;
+                        width: 6rem;
+                        padding: 0.4rem 0;
+                        font-family: inherit;
+                        font-weight: inherit;
+                        font-size: inherit;
+                        text-align: left;
+                        background: transparent;
+                        position: relative;
+                        &:focus,
+                        &:active {
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__totals {
+            &__subTotal {
+                @extend flexColumn;
+                align-items: stretch;
+                gap: 0.8rem;
+                padding-bottom: 2.4rem;
+                @extend borderBottomDashed;
+                .subTotalValue {
+                    @extend flexInline;
+                    justify-content: space-between;
+                    font-size: map-get($fontSize, btn);
+                    text-transform: uppercase;
+                    font-weight: map-get($fontWeight, bold);
+                }
+            }
+
+            &__total {
+                @extend flexInline;
+                justify-content: space-between;
+                text-transform: uppercase;
+                font-size: map-get($fontSize, numberCounter);
+                padding: 3rem 0;
+
+                .h3-total {
+                    padding-left: 2rem;
+                }
+            }
+        }
+
+        &__btnPay {
+            .btn-payNow {
+                @include btn(payNow);
+            }
+        }
+    }
+
+    &__resume {
+        padding: 2rem;
+        &__header {
+            padding-bottom: 2rem;
+            @extend borderBottom;
+            @include topHeaderResume;
+        }
+
+        &__table {
+            margin-top: 3.4rem;
+            overflow-x: scroll;
+            background-color: var(--actions-extras-light-gray);
+            height: 50rem;
+            border-radius: 1rem;
+
+            @include breakpoint(tablet) {
+                width: 100%;
+            }
+
+            @include breakpoint(tablet) {
+                width: 100%;
+            }
+
+            .tableOrder {
+                @include breakpoint(tablet) {
+                    width: 100%;
+                }
+                @include table;
+            }
+        }
+
+        &__cancel {
+            margin-top: 2rem;
+            .btn-cancelOrder {
+                @include btn(cancelOrder);
+                width: 100%;
+            }
+        }
+    }
+}

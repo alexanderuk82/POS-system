@@ -1,0 +1,58 @@
+extends ../src/templates/layout.pug
+include ../src/components/tips.pug
+include ../src/components/btnMethod.pug
+include ../src/components/topHeaderResume.pug
+include ../src/components/tableResume.pug
+block content
+    
+    section.paymentSection
+        .paymentSection__container
+            .paymentSection__container__header
+                h3.h3 payable amount
+                .paymentSection__container__header--details
+                    h3.priceAmount $00,00
+                    .tableGuess
+                        img(src="./img/guess-dark.svg")
+                        p.tableGuess--table Guess:
+                        p.tableGuess--number -
+            .paymentSection__container__tips
+                + tipsBtn
+            .paymentSection__container__method
+                .paymentSection__container__method__btns
+                    + btnMethod
+                .paymentSection__container__method__input
+                    span#addCash add cash received
+                    .input-field
+                        span#currency $
+                        input(type="number" )
+            .paymentSection__container__totals
+                .paymentSection__container__totals__subTotal
+                    .subTotalValue
+                        p subtotal
+                        p#subtotal $-
+                    .subTotalValue
+                        p tips
+                        p#tipsValue $-
+                    .subTotalValue
+                        p service charge 10%
+                        p#serviceCharge $-
+                .paymentSection__container__totals__total
+                    
+                        h3.h3-total total
+                        h3.totalValue $00,00
+            .paymentSection__container__btnPay
+                button.btn-payNow pay now
+        .main__sideSlide
+            .paymentSection__resume
+                .paymentSection__resume__header
+                     + topHeaderResume(0)  
+                .paymentSection__resume__table
+                    + tableResume
+                .paymentSection__resume__cancel
+                    button.btn-cancelOrder cancel order
+                
+
+
+
+    //- MAin JAvacript
+    script(src='../public/js/modules/payment.js' type = "module" defer)

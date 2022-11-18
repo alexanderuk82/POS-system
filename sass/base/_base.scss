@@ -1,0 +1,28 @@
+@use '../abtracts/' as *;
+
+*,
+*:after,
+*:before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: inherit;
+}
+
+body {
+    color: var(--green-600);
+    font-family: var(--main-font);
+}
+
+body {
+    font-size: 1.5rem;
+    color: var(--green-600);
+}
+
+.main-container {
+    // padding: 3rem 2rem;
+}

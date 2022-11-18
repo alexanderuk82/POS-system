@@ -1,0 +1,36 @@
+extends ../src/templates/layout.pug
+include ../src/components/tableListTitle.pug 
+include ../src/components/table.pug
+include ../src/components/detailCustomer.pug
+include ../src/components/topSideDetails.pug
+include ../src/components/noFood.pug
+
+
+block content
+    main.main
+        .main__middle
+                .main__leftSide
+                    .main__leftSide__container  
+                        + tableTitle
+                    .main__rightSide
+                        .main__rightSide__container
+                            + table
+                .main__bottom.display
+                    .main__bottom__container
+                        .main__bottom__container__details
+                            + detailCustomer 
+                        .main__bottom__container__continue 
+                            button(type="submit").btn.btn-select select and continue
+        .main__sideSlide
+            .main__sideSlide__container 
+                .main__sideSlide__container__topSide
+                    + topSideDetails(0)
+                .main__sideSlide__container__noFood
+                    + noFood
+    -// Main files
+    script(src='../public/js/main.js' type = "module")
+   
+ 
+
+            
+        

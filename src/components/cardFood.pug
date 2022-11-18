@@ -1,0 +1,20 @@
+include ../components/counterFood.pug
+
+mixin cardFood(section)
+    - for(let i = 1; i<=1; i++){
+        
+        figcaption.foodWrapper(data-card-food = `#${section}-${i}`)(value= 20)
+                .foodWrapper__img 
+                    img(src="./img/fries.jpg", alt="food")
+                figure.foodWrapper__bottom
+                    h4.h4 French fries
+                    .foodWrapper__bottom__categories
+                        p category:
+                        .foodWrapper__bottom__categories--icons 
+                            img(src="./img/glutten.svg")
+                            img(src="./img/chilli.svg") 
+                    .counterFood(id= `${section}-${i}`)
+                        + counterFood
+    -}
+   
+    

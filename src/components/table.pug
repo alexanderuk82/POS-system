@@ -1,0 +1,15 @@
+include ../components/counter.pug
+mixin table
+
+    - for(let i = 1; i<=7; i++){
+          
+
+            .main__rightSide__container__table 
+                input(type="radio" name="table" value=`table-${i}` id= `${i}`)
+                div.main__rightSide__container__table--label
+                    label(for = `${i}`)
+                        img.img__table(src="./img/table-big.svg", alt="table")                       
+                    span=`T${i}`
+                    .counter(id =`counter-${i}`)
+                        + counter
+    -  } 

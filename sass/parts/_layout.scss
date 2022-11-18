@@ -1,0 +1,42 @@
+@use '../abtracts/' as *;
+
+.mainContent {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden !important;
+    &::-webkit-scrollbar {
+        width: 0.1rem;
+    }
+}
+.main-container {
+    height: 100vh;
+}
+@include breakpoint(tablet) {
+    body {
+        height: 100vh;
+        @include breakpoint(desktop) {
+            height: auto;
+        }
+    }
+    .main-container {
+        display: grid;
+        grid-template-columns: min-content 1fr;
+        grid-template-rows: min-content 1fr;
+        .topHeader {
+            grid-column: 1/-1;
+            grid-row: 1;
+        }
+        .mainContent {
+            @include breakpoint(tablet) {
+                border-left: 1px solid var(--green-50);
+                height: 100%;
+                overflow-y: unset;
+            }
+        }
+        .menuLinks {
+            grid-column: 1/1;
+            grid-row: 2;
+            height: 100%;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+
+include ../components/counterOrderSelected.pug
+mixin orderSelected
+    - for(let i = 1; i<=3; i++){
+        
+    .main__sideSlide__container__contentDetails__orders--item(data-card-food = `#selected-${i}` value= 20)
+        //- .order-leftContent
+        //-     img(src="./img/fries.jpg")
+        //-     .order-leftContent__details
+        //-         p chicken wings
+        //-         h3.h3 $20
+        //- .order-rightContent(id= `selected-${i}`)
+        //-       + counterOrderSelected
+    -}

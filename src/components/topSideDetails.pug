@@ -1,0 +1,8 @@
+include ../components/detailCustomer.pug
+
+mixin topSideDetails(number)
+    .orderTopDetails 
+        h3.h3 order #
+        h3.h3.orderNumber= `${number}`
+    .orderGuessDetails 
+        + detailCustomer

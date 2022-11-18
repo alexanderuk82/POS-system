@@ -1,0 +1,503 @@
+@use '../abtracts/variables' as *;
+
+//Mixin for buttons and
+
+@mixin btn($type) {
+    border-radius: 1rem;
+    background-color: var(--blue-200);
+    padding: 2rem;
+    border: 0;
+    font-size: map-get($fontSize, btn);
+    text-transform: uppercase;
+    @extend flexInline;
+    gap: 0.5rem;
+    font-weight: map-get($fontWeight, bold);
+    cursor: pointer;
+
+    @if $type == 'floor' {
+        padding: 1.5rem 2.4rem;
+        text-transform: capitalize;
+        background-color: var(--actions-extras-light-gray);
+        // background-color: var(--salmon-300);
+        color: var(--actions-extras-unactive-btn);
+    }
+    @if $type == 'select' {
+        padding: 1.5rem 2.8rem;
+        background-color: var(--green);
+        color: var(--blue-100);
+    }
+    @if $type == 'cancelOrder' {
+        background-color: var(--actions-extras-warning);
+        color: var(--blue-100);
+    }
+    @if $type == 'payment' {
+        background-color: var(--green);
+        color: var(--blue-100);
+    }
+    @if $type == 'tips' {
+        background-color: var(--actions-extras-light-gray);
+        color: var(--blue-100);
+        font-weight: map-get($fontWeight, bold);
+        font-size: map-get($fontSize, tableNumber);
+        padding: 1rem;
+    }
+    @if $type == 'method' {
+        background-color: var(--actions-extras-light-gray);
+        color: var(--blue-100);
+        font-weight: map-get($fontWeight, bold);
+        font-size: map-get($fontSize, btn);
+        padding: 1.2rem 1.7rem;
+        @extend flexColumn;
+        img {
+            opacity: 0.3;
+        }
+    }
+    @if $type == 'payNow' {
+        background-color: var(--blue-300);
+        width: 100%;
+        border-radius: initial;
+        letter-spacing: 10.35px;
+        font-weight: 500;
+        font-size: 2.3rem;
+    }
+}
+
+//Style for details customer icons
+
+@mixin detailCustomer {
+    @extend flexInline;
+    gap: 4rem;
+    .tableDetails,
+    .tableGuess {
+        text-transform: uppercase;
+        @extend flexInline;
+        gap: 1rem;
+        text-transform: uppercase;
+        font-weight: map-get($fontWeight, bold);
+
+        img {
+            width: 2.1rem;
+            height: 2.1rem;
+        }
+    }
+
+    .tableDetails--number,
+    .tableGuess--number {
+        color: var(--salmon);
+        font-size: map-get($fontSize, numberHighlight);
+    }
+}
+
+//Styles for counter box
+.counter {
+    height: 6rem;
+    width: 100%;
+    position: absolute;
+    background-color: var(--blue-300);
+    padding: 1rem;
+    bottom: -7rem;
+    @extend flexInline;
+    transition: all 0.2s linear;
+    img {
+        width: 2.8rem;
+    }
+
+    .btn-counter,
+    &__value {
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+    }
+
+    &__value {
+        font-size: map-get($fontSize, numberCounter);
+        font-weight: map-get($fontWeight, bold);
+    }
+}
+
+@mixin counterFood {
+    height: 7rem;
+    width: 100%;
+    position: absolute;
+    background-color: var(--blue-300);
+    padding: 1rem;
+    bottom: -7rem;
+    left: 0;
+    @extend flexInline;
+    transition: all 0.2s linear;
+    img {
+        width: 2.8rem;
+    }
+    .btn-counterFood,
+    .btn-counterFood__value {
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+
+        &__value {
+            font-size: map-get($fontSize, numberCounter);
+            font-weight: map-get($fontWeight, bold);
+        }
+    }
+}
+
+@mixin counterOrderSelected {
+    @extend flexInline;
+    gap: 1rem;
+    img {
+        width: 2.8rem;
+    }
+    .btn-counterSelected,
+    .btn-counterSelected__value {
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+
+        &__value {
+            font-size: map-get($fontSize, numberCounter);
+            font-weight: map-get($fontWeight, bold);
+        }
+    }
+}
+
+@mixin sideSlide {
+    position: absolute;
+    width: 100%;
+    height: 107rem;
+    top: 0;
+    background-color: #fff;
+    transition: all 0.5s linear;
+    transform: translateX(160rem);
+    z-index: 100;
+    @include breakpoint(tablet) {
+        position: relative;
+        width: auto;
+        height: unset;
+        transform: translateX(0rem);
+        border-left: 1px solid var(--green-50) !important;
+    }
+
+    &.active-side {
+        transform: translateX(0rem);
+        z-index: 3;
+    }
+
+    &__container {
+        padding: 2rem;
+
+        @include breakpoint(tablet) {
+            // height: 100%;
+        }
+
+        &__topSide {
+            @extend flexColumn;
+            align-items: start;
+            align-items: start;
+            gap: 2rem;
+            padding-bottom: 2rem;
+            @extend borderBottom;
+
+            .orderTopDetails {
+                font-size: map-get($fontSize, titleSection);
+                text-transform: uppercase;
+            }
+            .orderTopDetails,
+            .orderGuessDetails {
+                width: 100%;
+                @extend flexInline;
+                justify-content: space-between;
+            }
+            .orderGuessDetails {
+                .tableDetails,
+                .tableGuess {
+                    @extend flexInline;
+                    gap: 0.8rem;
+                    text-transform: uppercase;
+                    font-weight: map-get($fontWeight, bold);
+
+                    img {
+                        width: 2.3rem;
+                        height: 1.5rem;
+                    }
+                }
+            }
+        }
+
+        &__noFood {
+            @extend noFood;
+
+            // @include breakpoint(tablet) {
+            //     height: 100vh;
+            // }
+        }
+    }
+}
+
+//Mixin for card food
+
+@mixin cardFood {
+    .foodWrapper {
+        width: 17.5rem;
+        overflow: hidden;
+        border-radius: 10px;
+        background-color: var(--blue-100);
+        cursor: pointer;
+        &__img {
+            width: 100%;
+            height: 12.4rem;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &__bottom {
+            @extend flexColumn;
+            align-items: stretch;
+            padding: 0.9rem 1.3rem;
+            gap: 1.3rem;
+            position: relative;
+
+            .counterFood {
+                @include counterFood;
+            }
+            .h4 {
+                font-size: map-get($fontSize, nameFood);
+
+                text-transform: uppercase;
+                text-align: center;
+            }
+            &__categories {
+                @extend flexInline;
+                gap: 3rem;
+                p {
+                    font-size: map-get($fontSize, textCategory);
+                    text-transform: uppercase;
+                }
+                &--icons {
+                    @extend flexInline;
+                    gap: 1rem;
+                }
+            }
+        }
+    }
+}
+
+//Orders selected items
+
+@mixin orderSelected {
+    .main__sideSlide__container__contentDetails__orders--item {
+        background-color: var(--actions-extras-light-blue);
+        @extend flexInline;
+        border-radius: 1.4rem;
+        padding: 1.5rem;
+    }
+
+    .order-leftContent {
+        margin-right: auto;
+        @extend flexInline;
+        gap: 1.8rem;
+        img {
+            width: 6.5rem !important;
+            height: 6.5rem !important;
+            object-fit: cover;
+            border-radius: 0.8rem;
+        }
+
+        &__details {
+            text-transform: uppercase;
+            @extend flexColumn;
+            align-items: start;
+            gap: 1rem;
+
+            .h3 {
+                font-size: map-get($fontSize, titleSection);
+            }
+        }
+    }
+
+    .order-rightContent {
+        text-transform: uppercase;
+        @extend flexColumn;
+        text-transform: uppercase;
+        align-items: center;
+        gap: 1.5rem;
+        height: 100%;
+
+        .h3 {
+            font-size: map-get($fontSize, titleSection);
+        }
+    }
+}
+
+// Subtotal Section
+
+@mixin Subtotal($section) {
+    .payments {
+        @extend borderBottomDashed;
+        &__content {
+            @extend flexColumn;
+            align-items: stretch;
+            padding: 1.8rem 1.4rem;
+            gap: 1.5rem;
+            text-transform: uppercase;
+            font-weight: map-get($fontWeight, bold);
+            &__subtotal,
+            &__charge {
+                @extend flexInline;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    .totals {
+        padding: 1.4rem;
+        @extend flexColumn;
+        align-items: stretch;
+        gap: 4rem;
+        margin-bottom: 2rem;
+        .total {
+            @extend flexInline;
+            justify-content: space-between;
+            h3 {
+                font-size: map-get($fontSize, titleSection);
+                text-transform: uppercase;
+            }
+        }
+
+        .total-action {
+            @extend flexInline;
+            gap: 2rem;
+            .btn-cancel {
+                @include btn(cancelOrder);
+            }
+            .btn-send {
+                @include btn(send);
+            }
+        }
+    }
+}
+
+//confirmation to send orders
+
+@mixin confirmation($section) {
+    padding: 2rem;
+
+    .lotties {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        svg {
+            width: 10rem !important;
+        }
+
+        &__content {
+            .h3 {
+                font-size: map-get($fontSize, numberHighlight);
+            }
+
+            .confirmation-action {
+                margin-top: 2rem;
+                @extend flexInline;
+                .btn-tables {
+                    @include btn(default);
+                }
+                .btn-pay {
+                    @include btn(payment);
+                }
+            }
+        }
+    }
+}
+
+//Top Header resume tables
+
+@mixin topHeaderResume {
+    .resumeHeader {
+        @extend flexInline;
+        justify-content: space-between;
+        h3 {
+            font-size: map-get($fontSize, titleSection);
+            text-transform: uppercase;
+        }
+    }
+    .timeAndTableHeader {
+        margin-top: 1.5rem;
+        @extend flexInline;
+        justify-content: space-between;
+    }
+
+    .tableDetails,
+    .timeDetails {
+        @extend flexInline;
+        justify-content: space-between;
+        gap: 0.8rem;
+        text-transform: uppercase;
+        font-weight: map-get($fontWeight, bold);
+    }
+    .tableDetails--number,
+    .tableDetails--hour {
+        color: var(--salmon);
+        font-size: map-get($fontSize, numberHighlight);
+    }
+}
+
+// Table order resume
+
+@mixin table {
+    width: 150vw;
+    text-align: center;
+    border-collapse: collapse;
+    .tableHeader {
+        background-color : var(--actions-extras-light-blue);
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        height: 4rem;
+    }
+
+    .tableItem {
+        @extend borderBottom;
+        height: 7rem;
+        .nameUpper {
+            text-transform: uppercase;
+            font-weight: map-get($fontWeight, bold);
+        }
+    }
+
+    .space {
+        padding: 1.6rem 0;
+    }
+    .btn-delete {
+        margin-left: 1rem;
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+    }
+}
+
+// Responsives media queries
+
+@mixin breakpoint($responsive) {
+    @if $responsive == 'mobile' {
+        @media (min-width: 33em) {
+            @content;
+        }
+    }
+    @if $responsive == 'mobileLand' {
+        @media (min-width: 43.75em) {
+            @content;
+        }
+    }
+    @if $responsive == 'tablet' {
+        @media (min-width: 64em) {
+            @content;
+        }
+    }
+    @if $responsive == 'desktop' {
+        @media (min-width: 80em) {
+            @content;
+        }
+    }
+}

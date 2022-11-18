@@ -1,0 +1,16 @@
+mixin detailCustomer(icon)
+
+    .tableDetails
+        img(src="./img/small-table-icon.svg")
+        p.tableDetails--table table:
+        p.tableDetails--number 1
+    .tableGuess
+        img(src="./img/guess-dark.svg")
+        p.tableGuess--table Guess:
+        p.tableGuess--number 2
+
+    if icon == "clock"
+       .tableGuess
+        img(src="./img/guess-clock.svg")
+        p.tableGuess--table Guess:
+        p.tableGuess--number 2 
